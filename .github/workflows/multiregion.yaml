@@ -20,12 +20,6 @@ jobs:
               with:
                 terraform_version: "1.5.7"
 
-            - name: Set Safe Directory
-              run: git config --global --add safe.directory /home/runner/work/linuxtips-aca-multiregion-vpc
-
-            - name: Create Environment Directory
-              run: mkdir -p pre-deployment/environment
-
             - name: Tree Repository
               run: tree .
               working-directory: ./pre-deployment
