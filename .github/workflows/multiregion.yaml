@@ -370,19 +370,19 @@ jobs:
 
             - name: Tree Repository
               run: tree .
-              working-directory: ./post-deployment/environment
+              working-directory: ./post-deployment
               
             - name: Terraform Init
-              run: terraform init -backend-config=backend.tfvars
-              working-directory: ./post-deployment/environment
+              run: terraform init -backend-config=environment/backend.tfvars
+              working-directory: ./post-deployment
               env:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID  }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY  }}
                 AWS_REGION: "us-east-1"
 
             - name: Terraform Plan
-              run: terraform plan -var-file=terraform.tfvars
-              working-directory: ./post-deployment/environment
+              run: terraform plan -var-file=environment/terraform.tfvars
+              working-directory: ./post-deployment
               env:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID  }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY  }}
@@ -403,19 +403,19 @@ jobs:
 
             - name: Tree Repository
               run: tree .
-              working-directory: ./post-deployment/environment
+              working-directory: ./post-deployment
               
             - name: Terraform Init
-              run: terraform init -backend-config=backend.tfvars
-              working-directory: ./post-deployment/environment
+              run: terraform init -backend-config=environment/backend.tfvars
+              working-directory: ./post-deployment
               env:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID  }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY  }}
                 AWS_REGION: "us-east-1"
 
             - name: Terraform Apply
-              run: terraform apply --auto-approve -var-file=terraform.tfvars
-              working-directory: ./post-deployment/environment
+              run: terraform apply --auto-approve -var-file=environment/terraform.tfvars
+              working-directory: ./post-deployment
               env:
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID  }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY  }}
